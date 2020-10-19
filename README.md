@@ -1,7 +1,7 @@
 # CorbeauPerdu\i18n\Locale Class
 Wrapper class to set locale environment and then either use *nix gettext(), or JSON files for translations!
 
-<a href="https://github.com/ravenlost/CorbeauPerdu/blob/master/PHP/i18n/UsageExamples/LocaleUsageExamples.php">**See: LocaleUsageExamples.php**</a>
+<a href="https://github.com/ravenlost/PHP_Locale/blob/master/UsageExamples/LocaleUsageExamples.php">**See: LocaleUsageExamples.php**</a>
 
 You have two choices for locale messages: Gettext MO files or JSON files.
 
