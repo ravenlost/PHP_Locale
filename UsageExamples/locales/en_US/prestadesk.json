@@ -1,0 +1,11 @@
+{
+  "": {
+    "domain": "prestadesk",
+    "language": "en_US",
+    "nplurals": "1",
+    "plural": "(n != 1)",
+    "plural-forms": "nplurals=2; plural=(n != 1);"
+  },
+
+  "test.page.title": "Test page for Locale"
+}

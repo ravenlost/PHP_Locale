@@ -1,0 +1,16 @@
+{
+  "": {
+    "domain": "prestadesk",
+    "language": "sr_CS",
+    "nplurals": "3",
+    "plural": "((n%10==1 && n%100!=11) ? 0 : ((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2))",
+    "plural-forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"
+  },
+
+  "I wrote a line of code": "Napisao sam liniju koda",
+  "I wrote %d lines of code": [
+    "Napisao sam %d liniju koda",
+    "Napisao sam %d linije koda",
+    "Napisao sam %d linija koda"
+  ]
+}

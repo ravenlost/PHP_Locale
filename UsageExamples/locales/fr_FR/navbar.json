@@ -1,0 +1,20 @@
+{
+  "": {
+    "domain": "navbar",
+    "language": "fr_FR",
+    "nplurals": "1",
+    "plural": "(n > 1)",
+    "plural-forms": "nplurals=2; plural=(n > 1);"
+  },
+
+  "This is my navbar": "Ceci est le menu de navigation",
+  "I like the color %s": "J'aime la couleur %s",
+
+  "cat.amount": "J'ai un chat",
+  "cat.amount.plural": "J'ai %d chats",
+
+  "I have one coin": "J'ai une pièce",
+  "I have A LOT of coins": [
+    "J'ai BEAUCOUP de pièces"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "": {
+    "domain": "prestadesk",
+    "language": "fr_FR",
+    "nplurals": "1",
+    "plural": "(n > 1)",
+    "plural-forms": "nplurals=2; plural=(n > 1);"
+  },
+
+  "test.page.title": "Page test pour Locale",
+  "Welcome, %s!": "Bienvenu, %s!",
+  "This page will show the dashboard": "Cette page affichera le tableau de bord",
+
+  "I have one car": "J'ai une seule voiture",
+  "I have A LOT of cars": "J'ai BEAUCOUP de voitures",
+  
+  "I wrote a line of code": "J'ai écris une ligne de code",
+  "I wrote %d lines of code": [
+    "J'ai écris %d lignes de code"
+  ]
+}
