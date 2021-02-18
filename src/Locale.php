@@ -388,6 +388,7 @@ class Locale
    * @param string $codeset encoding the gettext files are encoded into
    * @param string $lang_default fallback/default language if user doesn't specify a supported locale
    * @param string $cookieroot cookie path where to save 'lang' cookie on clients
+   * @param string $cookieDomain domain of cookie
    * @param mixed $lc_category an integer specifying a single LC category to set to running Locale, or 
    *                           an array with LC Categories to set to running Locale i.e. array(LC_MESSAGES,LC_TIME), or
    *                           an array with LC Categories set to specified locales for each category i.e. [LC_MESSAGES => 'en_US', LC_MONETARY => 'fr_FR']
@@ -399,7 +400,7 @@ class Locale
    *
    * @throws LocaleException
    */
-  public function __construct(array $locales, string $locales_dir, string $domain_default, string $codeset, string $lang_default, string $cookieroot = '/', $lc_category = null, bool $useGettext = true, bool $useCustomPluralForms = true, bool $usePluralFormsFromGettext = false, bool $debug = false, string $project = "UNDEFINED_PROJECT")
+  public function __construct(array $locales, string $locales_dir, string $domain_default, string $codeset, string $lang_default, string $cookieroot = '/', $cookieDomain = null, $lc_category = null, bool $useGettext = true, bool $useCustomPluralForms = true, bool $usePluralFormsFromGettext = false, bool $debug = false, string $project = "UNDEFINED_PROJECT")
   {
     $this->_locales = $locales;
     $this->_locales_dir = $locales_dir;
@@ -431,7 +432,7 @@ class Locale
       {
         //echo 'Getting lang from query-string...<br>';
         $this->_lang = $_GET['lang'];
-        setcookie('lang', $this->_lang, time() + 3600 * 24 * 365 * 10, $cookieroot); // it's stored in a cookie so it can be reused        
+        setcookie('lang', $this->_lang, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain); // it's stored in a cookie so it can be reused        
       }
     }
     // get lang from cookie
@@ -491,7 +492,7 @@ class Locale
     catch ( LocaleException $ex )
     {
       // change 'lang' cookie to whatever it was before: to force user to use what they had set before as lang
-      setcookie('lang', $org_cookie, time() + 3600 * 24 * 365 * 10, $cookieroot);
+      setcookie('lang', $org_cookie, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain);
       //unset($_SESSION['lang']);
 
       throw $ex;

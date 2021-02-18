@@ -156,6 +156,7 @@ $domain_default = 'prestadesk';
 $codeset = 'UTF-8';
 $lang_default = 'en';
 $cookieroot = '/';
+$cookiedomain = null; // or specify domain to attach cookie to i.e. 'myhost.com' 
 
 $lc_category = null; // don't set locale LC categories... will use server's default, or
 $lc_category = array(LC_MESSAGES, LC_MONETARY); // set specified LC categories to running Locale / Lang
@@ -170,7 +171,7 @@ $project = 'MYPROJECT';
 // initialize locale
 try
 {
-  $locale = new Locale($locales, $locales_dir, $domain_default, $codeset, $lang_default, $cookieroot, $lc_category, $useGettext, $useCustomPluralForms, $usePluralFormsFromGettext, $debug, $project);
+  $locale = new Locale($locales, $locales_dir, $domain_default, $codeset, $lang_default, $cookieroot, $cookiedomain, $lc_category, $useGettext, $useCustomPluralForms, $usePluralFormsFromGettext, $debug, $project);
 
   // if you have additional 'domains' (translation files) to load, it's better here in order to catch exceptions, if any,
   // otherwise if you call the 'dgettext*' functions with the desired domain, it will try to load it for you,
