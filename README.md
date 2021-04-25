@@ -121,7 +121,9 @@ If you are using actual keywords as keys for message translations (i.e. profile.
 **Notes about sprintf functionnality:**<br/>
 You can provide any of the *gettext() functions 1 or many 'v' optional argument(s).<br/>
 These values will be used to replace the sprintf's placeholders! i.e.:<br/>
-`Locale::_n("Hello %s, you have %d mail.", "Welcome, %s! You have %d emails.", "John", 5);`
+`Locale::_n("Hello %s, you have %d mail.", "Welcome, %s! You have %d emails.", "John", 5);`<br>
+`Locale::_n("%.1f hour/week", "%.1f hours/week", 37.5000, 37.5000);`
+
 
 **Extra tip:**<br/>
 If you plan on using gettext, and use tools such as POedit, or xgettext, etc. to get and manage your translations,<br/>
