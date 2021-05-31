@@ -172,6 +172,7 @@ use ParseError;
  *                        Also, $lc_category in constructor can now be an associative array in the form of [LC_MONETARY => 'fr_FR']. to specify other locales to be used for specific LCs, OTHER then the running locale !
  *                        i.e. user has 'en_US' to display all in english, but we want to force LC_MONETARY to be FRENCH EUROs when displaying currencies!
  *   2020/08/13 by PRoy - Added switchLocale() to be able to temporarily switch to another locale! It'll reload all loaded domains in the desired lang 
+ *   2021/05/31 by PRoy - Added secure mode to transfer lang cookie
  * </pre>
  *
  * @todo: Change eval() calls by using intl GNU Libc?
@@ -389,6 +390,7 @@ class Locale
    * @param string $lang_default fallback/default language if user doesn't specify a supported locale
    * @param string $cookieroot cookie path where to save 'lang' cookie on clients
    * @param string $cookieDomain domain of cookie
+   * @param bool $cookieSecure send cookie in secure mode
    * @param mixed $lc_category an integer specifying a single LC category to set to running Locale, or 
    *                           an array with LC Categories to set to running Locale i.e. array(LC_MESSAGES,LC_TIME), or
    *                           an array with LC Categories set to specified locales for each category i.e. [LC_MESSAGES => 'en_US', LC_MONETARY => 'fr_FR']
@@ -400,7 +402,7 @@ class Locale
    *
    * @throws LocaleException
    */
-  public function __construct(array $locales, string $locales_dir, string $domain_default, string $codeset, string $lang_default, string $cookieroot = '/', $cookieDomain = null, $lc_category = null, bool $useGettext = true, bool $useCustomPluralForms = true, bool $usePluralFormsFromGettext = false, bool $debug = false, string $project = "UNDEFINED_PROJECT")
+  public function __construct(array $locales, string $locales_dir, string $domain_default, string $codeset, string $lang_default, string $cookieroot = '/', $cookieDomain = null, $cookieSecure = false, $lc_category = null, bool $useGettext = true, bool $useCustomPluralForms = true, bool $usePluralFormsFromGettext = false, bool $debug = false, string $project = "UNDEFINED_PROJECT")
   {
     $this->_locales = $locales;
     $this->_locales_dir = $locales_dir;
@@ -432,7 +434,7 @@ class Locale
       {
         //echo 'Getting lang from query-string...<br>';
         $this->_lang = $_GET['lang'];
-        setcookie('lang', $this->_lang, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain); // it's stored in a cookie so it can be reused        
+        setcookie('lang', $this->_lang, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain, $cookieSecure); // it's stored in a cookie so it can be reused
       }
     }
     // get lang from cookie
@@ -492,7 +494,7 @@ class Locale
     catch ( LocaleException $ex )
     {
       // change 'lang' cookie to whatever it was before: to force user to use what they had set before as lang
-      setcookie('lang', $org_cookie, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain);
+      setcookie('lang', $org_cookie, time() + 3600 * 24 * 365 * 10, $cookieroot, $cookieDomain, $cookieSecure);
       //unset($_SESSION['lang']);
 
       throw $ex;
