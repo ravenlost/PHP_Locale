@@ -151,3 +151,8 @@ When using JSON files, personnally I'd also use this method to retrieve all my n
 
 <h2>Known Bugs</h2>
 There is currently a small issue when using plural tests (any of the <i>*<b>n</b>gettext()</i> functions). Passing a float value as the testing number to know if we need the plural or singular form will not work properly: it currently can only receive <b>INT</b>eger values! Need to also investigate if the same problem exists with <i><b><a href="https://github.com/ravenlost/JS_Locale">JS_Locale</a></b></i>.
+
+Example: 
+ngettext('I have one cat', 'I have many cats', 1.6)`
+
+Will output: <b><i>I have one cat</i></b>, even though, there is more than one (1.6). Okay, using cats as an example is ridiculous (no one can have 1.<b>6</b> cats! lol), but it still shows the problem. 
