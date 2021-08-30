@@ -148,3 +148,6 @@ If Using POedit, just add this to the header of your PO:
 </pre>
 
 When using JSON files, personnally I'd also use this method to retrieve all my needed translations into a PO file, and then just create my JSON file based on my values in my PO!
+
+<h2>Known Bugs</h2>
+There is currently a small issue when using plural tests (any of the <i>*<b>n</b>gettext()</i> functions). Passing a float value as the testing number to know if we need the plural or singular form will not work properly: it currently can only receive <b>INT</b>eger values! Need to also investigate if the same problem exists with <i><b><a href="https://github.com/ravenlost/JS_Locale">JS_Locale</a></b></i>.
