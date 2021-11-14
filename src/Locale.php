@@ -171,7 +171,7 @@ use ParseError;
  *   2020/08/13 by PRoy - Bug fix in loadJSONDomain() where the count() check to validate key's plurals array size is the same as nplurals would fail when hitting a key who's value wasn't an array! This didn't happen in PHP 7.1, but fails in PHP 7.4
  *                        Also, $lc_category in constructor can now be an associative array in the form of [LC_MONETARY => 'fr_FR']. to specify other locales to be used for specific LCs, OTHER then the running locale !
  *                        i.e. user has 'en_US' to display all in english, but we want to force LC_MONETARY to be FRENCH EUROs when displaying currencies!
- *   2020/08/13 by PRoy - Added switchLocale() to be able to temporarily switch to another locale! It'll reload all loaded domains in the desired lang 
+ *   2020/08/13 by PRoy - Added switchLang() to be able to temporarily switch to another locale! It'll reload all loaded domains in the desired lang 
  *   2021/05/31 by PRoy - Added secure mode to transfer lang cookie
  * </pre>
  *
